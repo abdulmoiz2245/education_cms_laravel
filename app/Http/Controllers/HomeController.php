@@ -46,7 +46,7 @@ class HomeController extends Controller
 
     }
 
-    public function class($id , Request $request){
+    public function class($id ,Request $request){
         $teacher_id  = $request->input('teacher_id');
         $course_id  = $request->input('course_id');
         $student_id = 1;

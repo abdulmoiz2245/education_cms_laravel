@@ -52,12 +52,21 @@
                                 @enderror
                             </div>
                         </div>
+                       
 
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+                          <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('User Type') }}</label>
+
+                            <div class="col-md-6 mt-2">
+                                <input id="user_type" type="radio"  name="user_type" value="1" required checked=""> Student
+                                <input id="user_type" type="radio"  name="user_type" value="2" required> Teacher
                             </div>
                         </div>
 

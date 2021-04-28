@@ -16,7 +16,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-    //    / $this->middleware('auth');
+       $this->middleware('auth');
     }
 
     /**
@@ -41,10 +41,8 @@ class HomeController extends Controller
         $student_courses = Course::whereIn('id' , $course_id)->get();
         $student_class_courses = student_courses::whereIn('course_id' , $course_id)->get();
 
-
         return  view('student.home')->with('student' , $student)->
                                     with('student_courses' , $student_courses)->with('student_class_courses' , $student_class_courses);
-        
 
     }
 

@@ -2,8 +2,6 @@
 
 @section('content')
 @php
-    $start_data = "2014-01-02T11:42:13.510";
-    $end_data = "2014-01-02T11:42:13.510";
 
     
 @endphp
@@ -23,11 +21,11 @@
                         </div>
                         <div class="form-group">
                             <label for="title">Stat date with time</label>
-                            <input type="datetime-local" name="start" id="" value ="{{$start_data}}">
+                            <input type="datetime-local" name="start" id="" value ="{{$class->start}}">
                         </div>
                         <div class="form-group">
                             <label for="title">End date with time</label>
-                            <input type="datetime-local" name="end" id="" value="{{$end_data}}">
+                            <input type="datetime-local" name="end" id="" value="{{$class->end}}">
                         </div>
                        <input type="submit" value="Submit">
                    </form>

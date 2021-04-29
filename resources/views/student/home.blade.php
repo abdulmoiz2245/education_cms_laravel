@@ -17,7 +17,7 @@
                     <a href="/shedule_student/1" class="btn btn-primary">Shedule</a>
                     <a href="/student/register_course/1" class="btn btn-primary">Enroll</a>
 
-                    <table style="width:100%" class="table">
+                    <table style="width:100%" class="table table-striped table-bordered mt-4">
                     <thead>
                     <tr>
                             <th>Id</th>
@@ -47,12 +47,12 @@
 </div>
    
 <script type="text/javascript">
-  $(function () {
-    
-    $(document).ready(function() {
-        $('table').DataTable();
-    } );
-    
-  });
+//  $(function () {
+//    
+//    $(document).ready(function() {
+//        $('table').DataTable();
+//    } );
+//    
+//  });
 </script>
 @endsection

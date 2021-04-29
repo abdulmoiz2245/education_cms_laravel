@@ -9,7 +9,7 @@
 
                 <div class="card-body">
                 <h4>Teacher Courses</h4>
-                    <table style="width:100%">
+                <table style="width:100%" class="table table-bordered table-striped">
                         <tr>
                             <th>Id</th>
                             <th>Couses Name</th>

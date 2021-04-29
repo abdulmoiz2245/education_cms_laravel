@@ -12,16 +12,24 @@
 
                 <div class="card-body">
                         <form action="/shedule" method="post">
-                            @csrf    
-                            <label for="" class="w-100" >Month</label>
-                            <input type="month" name="month" value="{{$month}}">
-                            <label for="" class="w-100">Week</label>
-                            <input type="number" name="week"  value="{{$week}}" min="1" max="5"><br><br>
-                            <input type="submit" value="Apply">
+                            @csrf
+                            <div class="row">
+                                <div class="col-md-4">
+                            <label for="" class="w-100 col-md-4" >Month</label>
+                            <input type="month" class="col-md-7" name="month" value="{{$month}}">
+                            </div>
+                                 <div class="col-md-4">
+                            <label for="" class="w-100  col-md-4">Week</label>
+                            <input type="number"  class="col-md-7"  name="week"  value="{{$week}}" min="1" max="5"><br><br>
+                                     </div>
+                                 <div class="col-md-3">
+                                <input type="submit" class="btn btn-dark" value="Filter">
+                                 </div>
+                             </div>
                         </form>
                         
                         <br><hr>
-                        <table>
+                        <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th width="200">Monday</th>
@@ -42,35 +50,34 @@
                                    // dd($data['start']);
                                     $course->start = new DateTime($data['start']);
                                     $course->day = (string) $course->start->format('D');
-                                    echo $course->day;
                                 ?>
                                 <th>@if($course->day == 'Mon')
-                                 <h4>Course:</h4><h5>asdasda</h5><br>{{$course->title}}<br>{{$data['start']}}
+                                 <h6>Course: <strong>{{$course->title}}</strong> </h6><br><p class="text-nowrap">{{$data['start']}}</p>
                                     
                                     @endif
                                 </th>
                                 <th>@if($course->day == 'Tue')
-                                {{$course->title}}<br>{{$data['start']}}
+                                <h6>Course: <strong>{{$course->title}}</strong> </h6><br><p class="text-nowrap">{{$data['start']}}</p>
                                     @endif
                                 </th>
                                 <th>@if($course->day == 'Wed')
-                                <h6>Course:</h6><h6>asdasda</h6><br> {{$course->title}}<br>{{$data['start']}}
+                                    <h6>Course: <strong>{{$course->title}}</strong> </h6><br><p class="text-nowrap">{{$data['start']}}</p>
                                     @endif
                                 </th>
                                 <th>@if($course->day == 'Thu')
-                                {{$course->title}}<br>{{$data['start']}}
+                                <h6>Course: <strong>{{$course->title}}</strong> </h6><br><p class="text-nowrap">{{$data['start']}}</p>
                                     @endif
                                 </th>
                                 <th>@if($course->day == 'Fri')
-                                {{$course->title}}<br>{{$data['start']}}
+                                <h6>Course: <strong>{{$course->title}}</strong> </h6><br><p class="text-nowrap">{{$data['start']}}</p>
                                     @endif
                                 </th>
                                 <th>@if($course->day == 'Sat')
-                                {{$course->title}}<br>{{$data['start']}}
+                                <h6>Course: <strong>{{$course->title}}</strong> </h6><br><p class="text-nowrap">{{$data['start']}}</p>
                                     @endif
                                 </th>
                                 <th>@if($course->day == 'Sun')
-                                {{$course->title}}<br>{{$data['start']}}
+                                <h6>Course: <strong>{{$course->title}}</strong> </h6><br><p class="text-nowrap">{{$data['start']}}</p>
                                     @endif
                                 </th>
                                 </tr>
@@ -87,12 +94,12 @@
 </div>
    
 <script type="text/javascript">
-  $(function () {
-    
-    $(document).ready(function() {
-        $('table').DataTable();
-    } );
-    
-  });
+//  $(function () {
+//    
+//    $(document).ready(function() {
+//        $('table').DataTable();
+//    } );
+//    
+//  });
 </script>
 @endsection

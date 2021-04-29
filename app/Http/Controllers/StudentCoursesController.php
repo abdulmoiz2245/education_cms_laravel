@@ -93,8 +93,8 @@ class StudentCoursesController extends Controller
      */
     public function destroy($id,student_courses $student_courses)
     {
-        $CourseClass = student_courses::find($id);
-        $CourseClass->delete();
+        $student_id=1;
+        student_courses::where('course_id',$id)->where('student_id',$student_id)->delete();
         return redirect()->back();
     }
 }

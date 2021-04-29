@@ -49,9 +49,9 @@ class PlaningsController extends Controller
         if ($this->request->isMethod('post'))
         {
             $day = explode('-', $this->request->input('month'));
-            $year = (int)$day[0];
-            $month =  (int)$day[1];
-            $week =  (int)$this->request->input('week');
+            $year = @(int)$day[0];
+            $month =  @(int)$day[1];
+            $week =  @(int)$this->request->input('week');
         }
       
 

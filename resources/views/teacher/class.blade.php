@@ -5,11 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Dashboard') }} <a class="btn btn-primary" style="float:right" href="/teacher/class/create">Add new</a></div>
 
                 <div class="card-body">
                 <h4>Classes of couse "{{$teacher_course->name}}"</h4>
-                    <table style="width:100%">
+                <table style="width:100%" class="table table-bordered table-striped">
                         <tr>
                             <th>Id</th>
                             <th>Class Title</th>

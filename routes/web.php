@@ -31,17 +31,17 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //     });
 // });
 
-Route::prefix('teacher')->group(function () {
-    Route::middleware('guest:teacher')->group(function () {
-        Route::view('login' , 'teacher.login')->name('teacher.login');
+// Route::prefix('teacher')->group(function () {
+//     Route::middleware('guest:teacher')->group(function () {
+//         Route::view('login' , 'teacher.login')->name('teacher.login');
         
-        Route::post('login' , [App\Http\Controllers\TeacherController::class, 'login'])->name('teacher.auth');
-    });
-    Route::middleware('teacher.auth')->group(function () {
-        Route::get('/teacher' ,  [App\Http\Controllers\TeacherController::class, 'view'])->name('teacher');
-    });
+//         Route::post('login' , [App\Http\Controllers\TeacherController::class, 'login'])->name('teacher.auth');
+//     });
+//     Route::middleware('teacher.auth')->group(function () {
+//         Route::get('/teacher' ,  [App\Http\Controllers\TeacherController::class, 'view'])->name('teacher');
+//     });
  
-});
+// });
 
 Route::get('/teacher' ,  [App\Http\Controllers\TeacherController::class, 'view'])->name('teacher');
 Route::get('/teacher/class/{id}' ,  [App\Http\Controllers\TeacherController::class, 'class'])->name('teacher.class');

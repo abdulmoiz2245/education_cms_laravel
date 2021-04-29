@@ -36,5 +36,25 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+        $this->middleware('guest:teacher')->except('logout');
+    }
+
+    public function showTeacherLoginForm()
+    {
+        return view('auth.login', ['url' => 'teacher']);
+    }
+
+    public function teacherLogin(Request $request)
+    {
+        $this->validate($request, [
+            'email'   => 'required|email',
+            'password' => 'required'
+        ]);
+
+        if (Auth::guard('teacher')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
+
+            return redirect()->intended('/teacher');
+        }
+        return back()->withInput($request->only('email', 'remember'));
     }
 }

@@ -71,4 +71,19 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    public function showTeacherRegisterForm()
+    {
+        return view('auth.register', ['url' => 'admin']);
+    }
+    protected function createTeacher(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $admin = Teacher::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
+        return redirect()->intended('login/admin');
+    }
 }

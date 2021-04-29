@@ -28,6 +28,7 @@ class CourseClassController extends Controller
     {
         $teacher_id = 1;
         $courses =  Course::all();
+      
         return view('teacher.creat_class')->with('courses' , $courses);
         
     }
@@ -42,6 +43,7 @@ class CourseClassController extends Controller
     {
         unset($request['_token']);
         CourseClass::create($request->all());
+      
         return redirect()->route('teacher.class.create')
         ->with('success','Class created successfully.');
     }

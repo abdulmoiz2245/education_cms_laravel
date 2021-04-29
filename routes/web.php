@@ -31,25 +31,25 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //     });
 // });
 
-// Route::prefix('teacher')->group(function () {
-//     Route::middleware('guest:teacher')->group(function () {
-//         Route::view('login' , 'teacher.login')->name('teacher.login');
+Route::prefix('teacher')->group(function () {
+    Route::middleware('guest:teacher')->group(function () {
+        Route::view('login' , 'teacher.login')->name('teacher.login');
         
-//         Route::post('login' , [App\Http\Controllers\TeacherController::class, 'login'])->name('teacher.auth');
-//     });
-//     Route::middleware('teacher.auth')->group(function () {
-//         Route::view('dashboard' , 'teacher.home')->name('teacher.home');
-//     });
+        Route::post('login' , [App\Http\Controllers\TeacherController::class, 'login'])->name('teacher.auth');
+    });
+    Route::middleware('teacher.auth')->group(function () {
+        Route::get('/teacher' ,  [App\Http\Controllers\TeacherController::class, 'view'])->name('teacher');
+    });
  
-// });
+});
 
 Route::get('/teacher' ,  [App\Http\Controllers\TeacherController::class, 'view'])->name('teacher');
 Route::get('/teacher/class/{id}' ,  [App\Http\Controllers\TeacherController::class, 'class'])->name('teacher.class');
 Route::get('/teacher/shedule' ,  [App\Http\Controllers\TeacherController::class, 'shedule'])->name('teacher.shedule');
-Route::get('/teacher/class/edit/{id}' ,  [App\Http\Controllers\CourseClassController::class, 'edit'])->name('teacher.class');
-Route::get('/teacher/class/delete/{id}' ,  [App\Http\Controllers\CourseClassController::class, 'destroy'])->name('teacher.class');
+Route::get('/teacher/class/edit/{id}' ,  [App\Http\Controllers\CourseClassController::class, 'edit'])->name('');
+Route::get('/teacher/class/delete/{id}' ,  [App\Http\Controllers\CourseClassController::class, 'destroy'])->name('teacher.class.delete');
 
-Route::post('/teacher/class/edit/{id}' ,  [App\Http\Controllers\CourseClassController::class, 'update'])->name('teacher.class');
+Route::post('/teacher/class/edit/{id}' ,  [App\Http\Controllers\CourseClassController::class, 'update'])->name('teacher.class.edit');
 Route::get('/teacher/class/create/' ,  [App\Http\Controllers\CourseClassController::class, 'create'])->name('teacher.class.create');
 Route::post('/teacher/class/create/' ,  [App\Http\Controllers\CourseClassController::class, 'store'])->name('teacher.class.create');
 Route::get('/shedule' ,  [App\Http\Controllers\PlaningsController::class, 'index'])->name('shedule');

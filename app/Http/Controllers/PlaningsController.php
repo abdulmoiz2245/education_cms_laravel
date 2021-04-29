@@ -80,7 +80,7 @@ class PlaningsController extends Controller
         ];
         return view('shedule')->with($data) ;
     }
-    public function course($course_id = 1 , $year = 2021, $month = 4, $week = 5 ,Request $request )
+    public function course($course_id  , $year = 2021, $month = 4, $week = 5 ,Request $request )
     {
         
         if ($this->request->isMethod('post'))
@@ -91,7 +91,7 @@ class PlaningsController extends Controller
             $week =  (int)$this->request->input('week');
         }
       
-        $course_id = 1;
+     
         $courses = CourseClass::where('course_id' , $course_id)->get();
         
         $course_list = array();
